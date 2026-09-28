@@ -1,0 +1,253 @@
+* { /* The * targets every element. margin and padding are set to 0, thsi removes the browser's default spacing so everything can be controlled */
+    box-sizing: border-box; /*This makes an elements width includes its padding and border, which makes layout more predictable */
+    margin: 0;
+    padding: 0;
+}
+body { /*This is the body of the page. It sets the font family, background color, and text color */
+    font-family: "Helvetica World", Helvetica, Arial, sans-serif; /*Font is set to Arial, Helvetica, or a generic sans-serif font. A light grey backdrop outside the form and dark grey text*/
+    background: #e9eef2;
+    color: #222;
+}
+
+.page { /*The dot means the class max-width: 800px stops it getting wider than a sheet of paper. margin: 0 auto centres it.*/
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+/*The Blue Header*/
+.banner { 
+    background: #0093c9;
+    display: flex; /*This puts the text and image side by side*/
+    justify-content: space-between; /*pushes the text and image to opposite ends*/
+    align-items: flex-start;
+    padding: 30px 40px 25px;
+    color: #ffffff;
+}
+
+.brand{
+    font-weight: bold;
+    color: #0a5f8a;
+    letter-spacing: 4px; /* letter spacing is what gives the title its wide appearance */
+    margin-bottom: 4px;
+}
+
+.banner h1{ /*Means any h1 element inside the .banner class */
+    font-family: "Anton", Impact, sans-serif;
+    font-weight: 400;
+    font-size: 3.4rem; /*rem is a unit of measurement in CSS. It is based on the font size of the root element, so 3.4 rem is 3.4 times the font size of the root element */
+    line-height: 1.15;
+    letter-spacing: 8px;
+    text-transform: uppercase; /*This makes the text all uppercase*/
+    color: #cdeefa;
+}
+
+.tagline{
+    font-family: "Anton", Impact, sans-serif; /*It means try the Anton font, then Impact, then a generic sans-serif font */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #0a5f8a;
+    margin: 10px 0 30px;
+}
+
+.date-pill {
+    display: inline-block;
+    border: 2px solid #111;
+    border-radius: 30px; /* Gives the date pill a rounded appearance */
+    padding: 8px 20px;
+    font-size: 1.1rem; /*rem is a unit of measurement in CSS. It is based on the font size of the root element, so 3.4 rem is 3.4 times the font size of the root element */
+}
+
+.date-pill input {
+    border: none; 
+    border-bottom: 1px solid #111;
+    background: transparent;
+    color: #111;
+    font-size: 1rem; /*rem is a unit of measurement in CSS. It is based on the font size of the root element, so 3.4 rem is 3.4 times the font size of the root element */
+}
+
+.banner-image {
+    width: 200px;
+    height: auto;
+}
+
+/*The Questions Section*/
+.questions { 
+    padding: 25px 40px 10px; /*Padding is the space inside the element, between the content and the border. The first value is for the top, the second is for the right and left, and the third is for the bottom. */
+}
+
+fieldset {
+    border: none; /*This removes the default border (grey box) around the fieldset */
+    margin-bottom: 22px;
+}
+
+legend{ /* This is the question is bold navy like in the PDF version*/
+    font-weight: bold;
+    color: #1b3a7a;
+    font-size: 1.2rem; 
+    margin-bottom: 10px;
+}
+
+.options { 
+    display: flex;
+    flex-wrap: wrap; /*This lets the options drop onto a second line if they don't fit on the first line*/
+    align-items: center;
+    gap: 10px 22px; /*This adds space between the options. 10px between rows and 22px between columns */
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 6px; /*This adds space between the radio button and the label text*/
+    cursor:pointer; /*This changes the cursor to a pointer when hovering over anything that is clickable*/
+}
+
+/*The black square checkboxes*/
+input[type="radio"] { /*Selects only checkboxes*/
+    appearance: none; /*This removes the default checkbox styling*/
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border: 6px solid #000;
+    border-radius: 3px; /*This gives the checkboxes a slight rounded appearance*/
+    cursor: pointer; /*This changes the cursor to a pointer when hovering over the checkbox*/
+}
+ 
+input[type="radio"]:checked { /*This styles the checkbox when it is checked*/
+    background: #0093c9; /*This changes the background color of the checkbox when it is checked*/
+}
+
+/*The written-answer boxes and the "Other" options*/
+
+.line-input { /*Gives the input field a clean appearance, an underline-only text field used after "Other"*/
+    border: none; /*This removes the default border around the input field*/
+    border-bottom: 1px solid #333; /*This adds a black line under the input field*/
+    width: 110px; /*This sets the width of the input field to 1100 pixels*/
+    font-size: 1 rem;
+}
+
+.break { 
+    flex-basis: 100%; /*This forces the next element to start on a new line*/
+    height: 0; /*This removes any height from the break element*/
+    margin-top: -10px; /*This adds a negative margin to the top of the break element, which pulls it up closer to the previous element*/
+}
+.line-input.wide { /*no space, means an element with both classes, so the second "Other" line is longer*/
+    width: 190px
+}
+
+.text-box { /*Makes the rounded outline around each written question*/
+    border: 1px solid #222;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.text-box label {
+    display: block;
+    font-weight:bold;
+    color: #1b3a7a;
+    margin-bottom: 8px; /*This adds space below the label and above the textarea*/
+}
+.text-box textarea { /*The textarea loses its border and resize:none stops the user dragging it bigger*/
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    resize: none; /*This removes the ability to resize the textarea*/
+    font-family: inherit; /* Makes it use Arial instead of the default font*/
+    font-size: 1rem;
+    line-height: 34px;
+    background-image: repeating-linear-gradient( /* This is a trick that creates the dotted line effect every 1.9em and giving a ruled paper look*/
+        to bottom,
+        transparent 34px,
+        #555 33px,
+    );
+    background-attachment: local;
+}
+
+/*Footer*/
+
+.thanks{
+    text-align: center;
+    padding: 20px 40px;
+}
+
+.thanks h2{
+    color: #0b3550;
+    font-size: 1.6rem;
+    margin-bottom: 6px; /*This adds space below the "Thank you" heading*/
+}
+
+.thanks p{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.logo {
+    width: 260px;
+    margin-top: 18px; /*This adds space above the logo*/
+}
+
+.contact {
+    background: #0093c9;
+    color: #ffffff;
+    text-align: center; /* Centres the text and images in the contact section */
+    padding: 16px;
+    display: flex; /*This makes the contact section a flex container, meaning it will lay out its content in a flexible manner */
+    flex-direction: column; /*This stacks the email above the website link, so it is no longer side by side*/
+    gap: 4px;
+}
+
+
+.contact a {
+    color: #ffffff;
+    text-decoration: none; /*This removes the default underline from links*/
+    font-weight: bold;
+}
+
+.contact a.small {
+    font-size: 0.6rem;
+    font-weight: normal;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin: 10px 0 20px;
+    background: #0093c9;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-button:hover {
+    background: #006f99;
+}
+
+.submit-button:focus-visible {
+    outline: 3px solid #1b3a7a;
+    outline-offset: 3px;
+}
+
+.form-status { 
+    text-align: center;
+    font-weight: bold;
+    color: #1b3a7a;
+    padding: 0 40px 20px;
+}
+
+/*Ensuring a Phone Screen Friendly Layout*/
+@media (max-width: 600px) { /*This is a media query that applies the following styles only when the screen width is 600px or less*/
+    .banner { flex-direction: column; }
+    .banner h1 { font-size: 2.4rem; letter-spacing: 4px; }
+    .banner img { width: 140px; margin-top: 15px; }
+    .questions { padding: 20px;}
+}
