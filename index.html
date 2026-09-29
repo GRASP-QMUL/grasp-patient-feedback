@@ -1,0 +1,150 @@
+<!DOCTYPE html> <!--Tells the browser that this is an HTML5 document-->
+<html lang="en"> <!--Specifies the language of the document as English-->
+<head> <!--This Head section contains meta information about the document that is not directly visible to the user-->
+    <meta charset="UTF-8"> <!--Lets the page display correctly in different browsers-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Ensures the page scales properly on different devices-->
+    <title>GRASP Feedback Questionnaire</title> <!-- Text on the browser tab-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <!--The two Google Fonts lines load the Anton font, preconnext speeds up the loading process-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> <!-- This is where the visible content of the page goes -->
+   <div class="page"> <!--This is an invisible box that hold the whole form. A class is a name we use to style things from the CSS file.-->
+    <header class="banner"> 
+        <div class="banner-text"><!--This groups the left-hand text so we can place the image beside it-->
+            <p class = "brand">G R A S P</p> <!--The small GRASP above the title, the spaces between the letters are typed in-->
+            <h1>Feedback Questionnaire</h1> <!--The main title of the page-->
+            <p class="tagline">Help Shape what comes next</p> <!--A brief description of the page's purpose. Will make it uppercase with CSS, so it is typed normally here-->
+            <label class = "date-pill">Date : <!--This is a label for the date input field-->
+                <input type="date" name="date"> <!--Name attribute for the date input field-->
+            </label>
+        </div>
+        <img src="images/Doctor Patient Blue.png" alt="Doctor examining patient" class="banner-image\"> <!--This is an image for the banner. <img> shows the illustration. src is the file path and alt is a description of the image if it fails to load-->
+    </header> <!--This is the end of the top section of the page-->
+    <form class="questions" action="https://formspree.io/f/mwlpapew" method="POST"> <!--<form> holds the form elements and treats them as one submission. "#" means no action method="post" means the form data will be sent privately rather than show in the URL-->
+        <!-- Questionnaire content goes here -->
+         <fieldset> <!--<fieldset> and <legend>: a group of related options and its question. This is the correct HTML for a question with several options. The default borders will be removed with CSS so it looks like a pdf-->
+            <legend>What best describes you?</legend>
+            <div class="options"> <!--Holds the answer choices so they can be layes out in a row-->
+                <label><input type="radio" name="role" value="patient"> Patient</label>
+                <label><input type="radio" name="role" value="parent"> Parent</label>
+                <label><input type="radio" name="role" value="Carer"> Carer</label>
+                <label><input type="radio" name="role" value="family"> Family</label>
+                <label><input type="radio" name="role" value="Healthcare professional"> Healthcare Professional</label>
+                <label><input type="radio" name="role|" value="other"> Other<input type="text" name="role-other" class="line-input"> <!--This is the blank box after other where people can type their response--></label>
+            </label>
+                       </div>
+         </fieldset>
+
+         <fieldset>
+            <legend>Before today were you aware of GRASP ?</legend>
+            <div class = "options">
+                <label><input type="radio" name="aware" value="yes"> Yes</label>
+                <label><input type="radio" name="aware" value="no"> No</label>
+                <label><input type="radio" name="aware" value ="unsure"> Unsure</label>
+                </div>
+         </fieldset>
+
+         <fieldset>
+            <legend> If yes, how did you first hear about GRASP?</legend>
+            <div class = "options">
+                <label><input type="radio" name="heard" value="staff"> Staff</label>
+                <label><input type="radio" name="heard" value="poster"> Poster</label>
+                <label><input type="radio" name="heard" value="website"> Website</label>
+                <label><input type="radio" name="heard" value="word_of_mouth"> Word of Mouth</label>
+                <label><input type="radio" name="heard" value="Other"> Other <input type="text" name="heard-other" class="line-input wide"></label>
+                </label>
+            </div>
+         </fieldset>
+
+         <fieldset>
+            <legend>How well do you understand GRASP? (Rate 1 - 5)</legend>
+            <div class="options">
+                <span>[<strong>Low</strong>]</span> <!--<strong> is used to make text bold-->
+                <label><input type="radio" name="understand" value="1">1</label>
+                <label><input type="radio" name="understand" value="2">2</label>
+                <label><input type="radio" name="understand" value="3">3</label>
+                <label><input type="radio" name="understand" value="4">4</label>
+                <label><input type="radio" name="understand" value="5">5</label>
+                <span>[<strong>High</strong>]</span>
+            </div>
+         </fieldset>
+
+         <fieldset>
+            <legend>What topic would you most like to learn about?</legend>
+            <div class="options">
+                <label><input type="radio" name="topic" value="short stature and growth disorders"> Short stature and growth disorders</label>
+                <label><input type="radio" name="topic" value="genetic-testing"> Genetic testing</label>
+                <span class="break"></span> <!--This is a blank space to force the next two checkboxes onto a new line-->
+                <label><input type="radio" name="topic" value="treatment options"> Treatment Options</label>
+                <label><input type="radio" name="topic" value="research developments"> Research Developments</label>
+            </div>
+         </fieldset>
+
+         <fieldset>
+            <div class="text-box">
+                <label for="suggestions"> Do you have any suggestions on how we can improve our services and enhance the patient experience ?</label>
+                <textarea id="suggestions" name="suggestions" rows="3"></textarea> <!--<textarea> is used for multi-line text input--> <!--for="suggestions" on the label must match the id of the textarea, It links the label to the textarea -->
+            </div>
+
+            <div class="text-box">
+                <label for="questions"> Are there any specific questions you would like answered  by the GRASP Team ? </label>
+                <textarea id="questions" name="questions" rows="3"></textarea> <!--<textarea> is used for multi-line text input--> <!--for="questions" on the label must match the id of the textarea, It links the label to the textarea -->
+            </div>
+         </fieldset>
+         
+         <!--This bit will protect the form from bots-->
+         <input type="text" name="_gotyou" tabindex="-1" autocomplete="off"
+         style="position:absolute; left:-9999px;" aria-hidden="true">
+         <!--Below will is the submit button -->
+         <button type="submit" class="submit-button">Submit</button> <!--This is the submit button for the form. When clicked, it will send the form data to the server specified in the action attribute of the form tag.-->
+    </form>
+
+    <p id="form-status" class="form-status" role="status"></p>
+
+    <!--This is the footer section-->
+    <section class="thanks"> 
+        <h2>Thank you for your feedback!</h2>
+        <p> Your answers will help us improve our services and enhance the patient experience.</p>
+        <img src="images/GRASP LOGO.png" alt="GRASP: Genetic. Research. Analysing. Short. Patients." class="logo"> <!--This is the GRASP logo image. <img> shows the illustration. src is the file path and alt is a description of the image if it fails to load-->  
+    </section>
+    
+    <footer class="contact">
+        <a href="mailto:h.lstorr@qmul.ac.uk">✉ h.l.storr@qmul.ac.uk</a> <!--Mail link that opens the default email app for the user-->
+        <a href="https://www.qmul.ac.uk/grasp/" class="small">https://www.qmul.ac.uk/grasp/</a> 
+    </footer>
+   </div>
+   <script>
+    const form =document.querySelector("form") /*Finds the form on the page and stores it in a variable called form*/
+    const status = document.getElementById("form-status"); /*Finds the message parapgraph by its id*/
+    const button = document.querySelectpr(".submit-btn"); /*Finds the button. The dot indicates "by class name"*/
+
+    form.addEventListener ("submit", async function (event){ /*Instructs to run the function whenver the form is submitted*/
+        /*async function (event) marks the function as one that can wait for the interner*/
+        event.preventDefault(); /*This stops the browser's normal behavious of leaving the page*/
+        button.disabled = true; /*This and the one below it stop double clicking and show progress */
+        button.textContent = "Sending...";
+        
+        /*This is when the system attemps to use the internte and if it fails it goes to the catch part instead of crashing the website*/
+        try{
+            const response = await fetch( form.action, { /*fetch(form.action, {...}) sends teh date to the Formspree email address*/
+                method: "POST", /*Indicates that the data is being sent*/
+                body: new FormData(form), /*Gathers every answer in the form automatically*/
+                headers: {Accept: "application/json"} /*Asks the service to reply with data instead of a web page*/
+            });
+
+            if(response.Ok) { /*trye if it works*/
+                form.reset()
+                status.textContent = "Thank you! Your feedback has been sent.";
+            } else{
+                status.textContent = "Sorry, something went wrong. Please try again later"
+            }
+        } catch (error) {
+            status.textContent = "Sorry, we could not connect. Please check your internet and try again.";  
+        }
+        button.disabled = false;
+        button.textContent ="Submit Feedback";
+        });
+   </script>
+</body>
