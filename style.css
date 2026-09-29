@@ -117,6 +117,21 @@ input[type="radio"]:checked { /*This styles the checkbox when it is checked*/
     background: #0093c9; /*This changes the background color of the checkbox when it is checked*/
 }
 
+/*The checkboxes*/
+input[type="checkbox"] { 
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border: 6px solid #000;
+    border-radius: 3px; 
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked { /*This styles the checkbox when it is checked*/
+    background: #0093c9;
+}
+
 /*The written-answer boxes and the "Other" options*/
 
 .line-input { /*Gives the input field a clean appearance, an underline-only text field used after "Other"*/
